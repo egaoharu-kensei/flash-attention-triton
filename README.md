@@ -1,11 +1,11 @@
-![](https://github.com/egaoharu-kensei/fl-attn-triton/blob/master/assets/flash_attention_banner.png?raw=True)
+![](https://github.com/egaoharu-kensei/flash-attention-triton/blob/master/assets/flash_attention_banner.png?raw=True)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-red)](https://www.python.org)
 [![Triton Versions](https://img.shields.io/badge/Triton-3.1.0%2B-red)](https://triton-lang.org)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.5.0%2B-red)](https://pytorch.org)
 [![PyPI version](https://badge.fury.io/py/flash-attention-triton.svg)](https://pypi.org/project/flash-attention-triton/)
-[![Downloads](https://static.pepy.tech/badge/flash-attention-triton/month)](https://pepy.tech/projects/flash-attention-triton)
+[![Downloads](https://static.pepy.tech/badge/flash-attention-triton)](https://pepy.tech/projects/flash-attention-triton)
 
 FlashAttention-2 Triton implementation based on Tri Dao's paper ["FlashAttention-2:
 Faster Attention with Better Parallelism and Work Partitioning"](https://arxiv.org/abs/2307.08691).
