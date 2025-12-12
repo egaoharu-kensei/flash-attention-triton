@@ -1,0 +1,144 @@
+[build-system]
+requires = ["setuptools>=65.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flash-attention-triton"
+version = "0.1.0"
+description = "Cross-platform FlashAttention-2 Triton implementation for Turing+ architectures"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "Egor Zakharenko", email = "egorzakharenko97@gmail.com"}]
+keywords = ["flash-attention", "attention", "transformers", "triton", "gpu", "llm", "optimization"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# Note: user will install torch/torchvision/torchaudio manually from the PyTorch index
+dependencies = [
+    "packaging>=23.0",
+]
+
+# GPU-specific Triton versions — see README for architecture guide
+[project.optional-dependencies]
+legacy = [
+    "triton>=3.1.0,<=3.2.0; sys_platform == 'linux'",
+    "triton-windows>=3.1.0.post17,<=3.2.0.post13; sys_platform == 'win32'",
+]
+modern = [
+    "triton>=3.3.0; sys_platform == 'linux'",
+    "triton-windows>=3.3.0.post19; sys_platform == 'win32'",
+]
+dev = [
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.7.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/egaoharu-kensei/flash-attention-triton"
+Repository = "https://github.com/egaoharu-kensei/flash-attention-triton"
+"Issue Tracker" = "https://github.com/egaoharu-kensei/flash-attention-triton/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# Ruff configuration
+[tool.ruff]
+line-length = 99
+target-version = "py310"
+extend-exclude = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = [
+    "D",  # pydocstyle
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "UP",  # pyupgrade
+    "N",  # pep8-naming
+    "ARG",  # flake8-unused-arguments
+    "ANN",  # flake8-annotations
+]
+extend-ignore = [
+    "E203",  # whitespace before ':'
+    "E501",  # line too long
+    "E712",  # comparison to True/False
+    "E731",  # do not assign a lambda expression
+    "N803",  # argument name should be lowercase
+    "N806",  # variable in function should be lowercase
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/__init__.py" = ["D104"]  # missing docstring in public package
+"tests/*.py" = [
+    "D100",  # missing docstring in public module
+    "D101",  # missing docstring in public class
+    "D102",  # missing docstring in public method
+    "D103",  # missing docstring in public function
+    "N",
+    "ANN",
+]
+"**/_triton_kernels_v2.py" = [
+    "D417",  # missing argument descriptions
+    "F821",  # undefined name
+    "N",
+    "ARG",
+    "ANN",
+]
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 99
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.isort]
+known-first-party = ["flash_attention_triton"]
+combine-as-imports = true
+
+# Mypy configuration
+[tool.mypy]
+python_version = "3.10"
+strict = true
+files = ["src"]
+exclude = [
+    "tests",
+    ".*/_triton_kernels.*\\.py$",
+    ".*\\.ipynb$",
+]
+
+# --- Main settings ---
+warn_return_any = true
+warn_unused_configs = true
+warn_unused_ignores = false
+warn_redundant_casts = true
+no_implicit_optional = true
+
+# --- Settings for Triton/PyTorch ---
+# Triton kernels use untyped args; strict rules disabled
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+disallow_untyped_decorators = false
+check_untyped_defs = true
+
+# --- Additional checks ---
+warn_no_return = true
+
+# --- Overrides ---
+[[tool.mypy.overrides]]
+module = ["triton", "triton.language"]
+ignore_missing_imports = true

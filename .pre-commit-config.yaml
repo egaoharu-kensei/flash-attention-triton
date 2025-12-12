@@ -1,0 +1,22 @@
+repos:
+  # Ruff: linting, formatting, import sorting
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.0  # stable release
+    hooks:
+      # Run the linter: checks with auto-fix enabled
+      - id: ruff
+        name: ruff-lint
+        types_or: [python, pyi]
+        args: [--fix, --exit-non-zero-on-fix]
+      # Run the code style formatter (after lint fixes)
+      - id: ruff-format
+        types_or: [python, pyi]
+
+  # Mypy: static type checking
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.17.0  # stable release
+    hooks:
+      - id: mypy
+        name: mypy-type-check
+        types_or: [python, pyi]
+        pass_filenames: false
