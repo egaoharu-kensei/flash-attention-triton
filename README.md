@@ -1,4 +1,4 @@
-![](https://github.com/egaoharu-kensei/flash-attention-triton/blob/master/assets/flash_attention_banner.png?raw=True)
+![](https://github.com/egaoharu-kensei/flash-attention-triton/blob/main/assets/flash_attention_banner.png?raw=True)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-red)](https://www.python.org)
