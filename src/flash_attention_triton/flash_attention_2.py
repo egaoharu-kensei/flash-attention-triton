@@ -747,12 +747,12 @@ def flash_attention_v2_custom(
             min_warps=4,
             max_warps=8,
             num_stages=1,
-            backward_autotune_configs=turing_backward_autotune_config_non_deterministic
+            backward_autotune_configs=turing_backward_autotune_config_non_deterministic,
         )
 
         # Create configuration mapping (several configs may be added here)
         non_deterministic_configs = {
-            (7, 5): turing_kernel_config_non_deterministic  # Turing GPUs (T4, RTX 20-series)
+            (7, 5): turing_kernel_config_non_deterministic,  # Turing GPUs (T4, RTX 20-series)
         }
 
         # Compute attention with custom configurations
