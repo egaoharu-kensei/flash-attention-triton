@@ -2,10 +2,12 @@
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-red)](https://www.python.org)
-[![Triton Versions](https://img.shields.io/badge/Triton-3.1.0%2B-red)](https://triton-lang.org)
+[![Triton Versions](https://img.shields.io/badge/Triton-3.1.0%2B-red)](https://triton-lang.org/main/index.html)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.5.0%2B-red)](https://pytorch.org)
-[![PyPI version](https://badge.fury.io/py/flash-attention-triton.svg)](https://pypi.org/project/flash-attention-triton/)
-[![Downloads](https://static.pepy.tech/badge/flash-attention-triton)](https://pepy.tech/projects/flash-attention-triton)
+[![PyPI Package](https://img.shields.io/pypi/v/flash-attention-triton?label=PyPI%20Package&color=2eb82e&labelColor=grey)](https://pypi.org/project/flash-attention-triton/)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/flash-attention-triton?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=Downloads)](https://pepy.tech/projects/flash-attention-triton)
+[![Types - Mypy](https://img.shields.io/badge/types-Mypy-202235.svg?logo=python&label=Types&labelColor=202235&color=edb641&logoColor=edb641)](https://github.com/python/mypy)
+[![Code Style - Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/format.json&labelColor=202235)](https://github.com/astral-sh/ruff)
 
 FlashAttention-2 Triton implementation based on Tri Dao's paper ["FlashAttention-2:
 Faster Attention with Better Parallelism and Work Partitioning"](https://arxiv.org/abs/2307.08691).
