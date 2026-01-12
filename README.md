@@ -12,6 +12,8 @@
 FlashAttention-2 Triton implementation based on Tri Dao's paper ["FlashAttention-2:
 Faster Attention with Better Parallelism and Work Partitioning"](https://arxiv.org/abs/2307.08691).
 
+🔔 **Tutorial for this project is also available on the following platforms: [Habr (ru)](https://habr.com/ru/articles/976576/), [Kaggle (en)](https://www.kaggle.com/code/egazakharenko/flashattention-2-for-turing-from-scratch-tutorial), [YouTube (en)](https://www.youtube.com/watch?v=orKwx_FUyug).**
+
 ## Key Features
 
 - Cross-platform support (Linux and Windows)
